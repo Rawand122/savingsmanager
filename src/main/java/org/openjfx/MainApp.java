@@ -18,65 +18,66 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        Label homeTxt = new Label();
+        homeTxt.setText("Hello Rawand, Welcome back!!");
+        homeTxt.setFont(new Font("Arial\"",15));
 
-        Label label = new Label();
-        label.setText("Hello Rawand, Welcome back!!");
-        label.setFont(new Font("Arial\"",15));
-
+        //main screen buttons
         Button expensesBut = new Button();
         Button savingsBut = new Button();
         Button incomeBut = new Button();
-        //Setting text to the savingsBut
+
         expensesBut.setText("Expenses");
         savingsBut.setText("Savings");
         incomeBut.setText("Income");
-        //Setting the location of the savingsBut
+
         savingsBut.setTranslateX(150);
         savingsBut.setTranslateY(60);
         expensesBut.setTranslateY(60);
         expensesBut.setTranslateX(80);
         incomeBut.setTranslateY(60);
         incomeBut.setTranslateX(210);
+
         //Setting the stage
-        Group root = new Group(savingsBut,label,expensesBut,incomeBut);
-        Scene scene = new Scene(root, 595, 150, Color.BEIGE);
+        Group root = new Group(savingsBut,homeTxt,expensesBut,incomeBut);
+        Scene mainScene = new Scene(root, 300, 250, Color.AQUAMARINE);
 
 
         //Expenses scene
-        Label label2= new Label("This is the Expenses");
-        Button button2= new Button("Home");
-        button2.setOnAction(e -> stage.setScene(scene));
-        VBox layout2= new VBox(20);
-        layout2.getChildren().addAll(label2, button2);
-        Scene scene2= new Scene(layout2,300,250);
+        Label expensesLabel= new Label("This is the Expenses");
+        Button homeBut= new Button("Home");
+        homeBut.setOnAction(e -> stage.setScene(mainScene));
+        VBox expenseLayout= new VBox(20);
+        expenseLayout.getChildren().addAll(expensesLabel, homeBut);
+        Scene expenseScene= new Scene(expenseLayout,300,250);
 
-        expensesBut.setOnAction(e -> stage.setScene(scene2));
+        expensesBut.setOnAction(e -> stage.setScene(expenseScene));
 
         //savings scene
-        Label label3 = new Label("This is the savings scene");
-        Button button3 = new Button("Home");
-        button3.setOnAction(e -> stage.setScene(scene));
-        VBox layout3 = new VBox(20);
-        layout3.getChildren().addAll(label3,button3);
+        Label savingsLabel = new Label("This is the savings scene");
+        Button homeBut1 = new Button("Home");
+        homeBut1.setOnAction(e -> stage.setScene(mainScene));
+        VBox savingsLayout = new VBox(20);
+        savingsLayout.getChildren().addAll(savingsLabel,homeBut1);
 
-        Scene scene3 = new Scene(layout3,300,250);
+        Scene savingScene = new Scene(savingsLayout,300,250);
 
-        savingsBut.setOnAction(e -> stage.setScene(scene3));
+        savingsBut.setOnAction(e -> stage.setScene(savingScene));
 
         // Income scene
 
-        Label label4 = new Label("This is the income scene");
-        Button button4 = new Button("Home");
-        button4.setOnAction(e -> stage.setScene(scene));
-        VBox layout4 = new VBox(20);
-        layout4.getChildren().addAll(label4,button4);
+        Label incomeLabel = new Label("This is the income scene");
+        Button homeBut4 = new Button("Home");
+        homeBut4.setOnAction(e -> stage.setScene(mainScene));
+        VBox incomeLayout = new VBox(20);
+        incomeLayout.getChildren().addAll(incomeLabel,homeBut4);
 
-        Scene scene4 = new Scene(layout4,300,250);
+        Scene incomeScene = new Scene(incomeLayout,300,250);
 
-        incomeBut.setOnAction(event -> stage.setScene(scene4));
+        incomeBut.setOnAction(event -> stage.setScene(incomeScene));
 
         stage.setTitle("Savings Manager");
-        stage.setScene(scene);
+        stage.setScene(mainScene);
 
 
         stage.show();
@@ -91,3 +92,5 @@ public class MainApp extends Application {
     }
 
 }
+
+
