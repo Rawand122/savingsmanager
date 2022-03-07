@@ -7,16 +7,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.Arrays;
 
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        Expenses expenses = new Expenses();
+
+        double [] initialValues = getLastValues();
+        expenses.addExpenses(initialValues[0]);
 
         Label homeTxt = new Label();
         homeTxt.setText("Hello Rawand, Welcome back!!");
@@ -45,10 +54,19 @@ public class MainApp extends Application {
 
         //Expenses scene
         Label expensesLabel= new Label("This is the Expenses");
+        Label currentExpenses = new Label("Current expenses: " +expenses.getExpenses());
+        Label addExpensesLabel= new Label("Add an Expense: ");
+        TextField textField = new TextField();
+        Button addExpenseBut= new Button("Add Expense");
+        addExpenseBut.setOnAction(event ->{
+                    expenses.addExpenses(Double.parseDouble(textField.getText()));
+                   currentExpenses.setText("Current expenses: " +expenses.getExpenses());
+        } );
         Button homeBut= new Button("Home");
         homeBut.setOnAction(e -> stage.setScene(mainScene));
         VBox expenseLayout= new VBox(20);
-        expenseLayout.getChildren().addAll(expensesLabel, homeBut);
+        expenseLayout.getChildren().addAll(expensesLabel,currentExpenses,addExpensesLabel, textField,addExpenseBut,
+                homeBut);
         Scene expenseScene= new Scene(expenseLayout,300,250);
 
         expensesBut.setOnAction(e -> stage.setScene(expenseScene));
@@ -91,6 +109,32 @@ public class MainApp extends Application {
         launch(args);
     }
 
+
+    private double[] getLastValues() throws IOException {
+
+        //read text file and get values / if file doesn't exist create
+        File myFile = new File("datafile.txt");
+        double[] values = new double[3];
+        if (myFile.createNewFile()){
+            BufferedWriter writer = new BufferedWriter(new FileWriter(myFile.getPath()));
+            writer.write("0.0,0.0,0.0");
+
+            writer.close();
+            values[0] = 0.0;
+            values[1] = 0.0;
+            values[2] = 0.0;
+        }else{
+            BufferedReader reader = new BufferedReader(new FileReader(myFile));
+
+            String [] line = reader.readLine().split(",");
+            values = Arrays.stream(line)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+        }
+
+        return values;
+    }
 }
 
 

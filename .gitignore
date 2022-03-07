@@ -1,0 +1,7 @@
+/datafile.txt
+/.idea/sonarlint/
+/.gradle/
+
+/.gradle/7.4/
+/.gradle/buildOutputCleanup/
+/.gradle/vcs-1/
