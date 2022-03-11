@@ -2,15 +2,21 @@ package org.openjfx;
 
 public class Savings {
     private static Savings instance;
-    private Savings(){};
 
-    public static Savings getInstance(){
-        if(instance == null) {
+    private Savings() {
+    }
+
+    ;
+
+    public static Savings getInstance() {
+        if (instance == null) {
             instance = new Savings();
         }
 
         return instance;
-    };
+    }
+
+    ;
 
     double savings = 0;
 
