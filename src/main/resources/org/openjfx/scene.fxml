@@ -1,46 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.FXMLController">
-      <Label fx:id="welcomemessage" layoutX="162.0" layoutY="43.0" text="Welcome back Rawand ">
-      <font>
-         <Font size="20.0" />
-      </font></Label>
-   <HBox layoutX="106.0" layoutY="301.0" prefHeight="30.0" prefWidth="395.0" spacing="10.0">
-      <children>
-            <Button id="overviewBut" fx:id="homeBut" mnemonicParsing="false" onAction="#switchToHome" text="Home" />
-            <Button mnemonicParsing="false" onAction="#switchToIncome" text="Income" />
-            <Button fx:id="expensesBut" mnemonicParsing="false" onAction="#switchToExpenses" text="Expenses" />
-            <Button mnemonicParsing="false" onAction="#switchToSavings" text="Savings" />
-         <Button mnemonicParsing="false" onAction="#saveData" prefHeight="26.0" prefWidth="78.0" text="Save Data" />
-      </children>
-   </HBox>
-   <Pane fx:id="incomePane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
-      <children>
-                  <Label id="incomeLabel" fx:id="currentIncome" layoutX="66.0" layoutY="49.0" prefHeight="25.0" prefWidth="177.0" text="Current Income: " />
-         <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add" />
-         <TextField fx:id="incomeText" layoutX="66.0" layoutY="100.0" text="Add income" />
-      </children>
-   </Pane>
-   <Pane fx:id="expensesPane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
-      <children>
-         <Label id="expensesLabel" fx:id="currentExpenses" layoutX="66.0" layoutY="49.0" prefHeight="25.0" prefWidth="177.0" text="Current Expenses: " />
-         <TextField fx:id="expensesText" layoutX="66.0" layoutY="100.0" text="Add expenses" />
-         <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add" />
-      </children>
-   </Pane>
-   <Pane fx:id="savingsPane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
-      <children>
-         <Label id="savingsLabel" fx:id="currentSavings" layoutX="66.0" layoutY="49.0" prefHeight="25.0" prefWidth="177.0" text="Current Savings: " />
-         <TextField fx:id="savingsText" layoutX="66.0" layoutY="100.0" text="Add savings" />
-         <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add" />
-      </children>
-   </Pane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0"
+      prefWidth="596.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.openjfx.FXMLController">
+    <Label fx:id="welcomemessage" layoutX="162.0" layoutY="43.0" text="Welcome back Rawand ">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Label>
+    <HBox layoutX="106.0" layoutY="301.0" prefHeight="30.0" prefWidth="395.0" spacing="10.0">
+        <children>
+            <Button id="overviewBut" fx:id="homeBut" mnemonicParsing="false" onAction="#switchToHome" text="Home"/>
+            <Button mnemonicParsing="false" onAction="#switchToIncome" text="Income"/>
+            <Button fx:id="expensesBut" mnemonicParsing="false" onAction="#switchToExpenses" text="Expenses"/>
+            <Button mnemonicParsing="false" onAction="#switchToSavings" text="Savings"/>
+        </children>
+    </HBox>
+    <Pane fx:id="incomePane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
+        <children>
+            <Label id="incomeLabel" fx:id="currentIncome" layoutX="66.0" layoutY="49.0" prefHeight="25.0"
+                   prefWidth="177.0" text="Current Income: "/>
+            <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add"/>
+            <TextField fx:id="incomeText" layoutX="66.0" layoutY="100.0" promptText="Add income"/>
+            <TextField fx:id="incomeText1" layoutX="66.0" layoutY="134.0" onAction="#reduce" promptText="Reduce"/>
+            <Button layoutX="240.0" layoutY="135.0" mnemonicParsing="false" onAction="#reduce" text="Reduce"/>
+        </children>
+    </Pane>
+    <Pane fx:id="expensesPane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
+        <children>
+            <Label id="expensesLabel" fx:id="currentExpenses" layoutX="66.0" layoutY="49.0" prefHeight="25.0"
+                   prefWidth="177.0" text="Current Expenses: "/>
+            <TextField fx:id="expensesText" layoutX="66.0" layoutY="100.0" promptText="Add expenses"/>
+            <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add"/>
+            <TextField fx:id="expensesText1" layoutX="66.0" layoutY="142.0" promptText="Reduce"/>
+            <Button layoutX="241.0" layoutY="140.0" mnemonicParsing="false" onAction="#reduce" text="Reduce"/>
+        </children>
+    </Pane>
+    <Pane fx:id="savingsPane" layoutX="95.0" layoutY="99.0" prefHeight="200.0" prefWidth="401.0" visible="false">
+        <children>
+            <Label id="savingsLabel" fx:id="currentSavings" layoutX="66.0" layoutY="49.0" prefHeight="25.0"
+                   prefWidth="177.0" text="Current Savings: "/>
+            <TextField fx:id="savingsText" layoutX="66.0" layoutY="100.0" promptText="Add savings"/>
+            <Button layoutX="239.0" layoutY="100.0" mnemonicParsing="false" onAction="#add" text="Add"/>
+            <TextField fx:id="savingsText1" layoutX="66.0" layoutY="133.0" promptText="Reduce"/>
+            <Button layoutX="239.0" layoutY="133.0" mnemonicParsing="false" onAction="#reduce" text="Reduce"/>
+        </children>
+    </Pane>
+    <Pane fx:id="homePane" layoutX="66.0" layoutY="85.0" prefHeight="200.0" prefWidth="426.0">
+        <children>
+            <Label fx:id="monthlyIncome" layoutX="85.0" layoutY="56.0" prefHeight="25.0" prefWidth="296.0"
+                   text="Current monthly disposal income: ">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <Label fx:id="weeklyIncome" layoutX="213.0" layoutY="88.0" prefHeight="25.0" prefWidth="203.0"
+                   text="(per week: )">
+                <font>
+                    <Font name="System Bold" size="10.0"/>
+                </font>
+            </Label>
+            <Label fx:id="yearlyIncome" layoutX="85.0" layoutY="140.0" prefHeight="25.0" prefWidth="280.0"
+                   text="Current yearly income: ">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+        </children>
+    </Pane>
 
 </Pane>

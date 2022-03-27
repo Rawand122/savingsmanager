@@ -4,14 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.FXMLController">
-   <children>
-      <Button layoutX="276.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToHome" text="Home" />
-      <Label layoutX="257.0" layoutY="53.0" prefHeight="35.0" prefWidth="86.0" text="Overview">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-   </children>
+<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.openjfx.FXMLController">
+    <children>
+        <Button layoutX="276.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToHome" text="Home"/>
+        <Label layoutX="257.0" layoutY="53.0" prefHeight="35.0" prefWidth="86.0" text="Overview">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+    </children>
 </Pane>
